@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Backend\AdminUserController;
+use App\Http\Controllers\Backend\WalletController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,10 @@ Route::prefix('admin')->name('admin.')->middleware('auth:admin_user')->group(fun
 
     Route::resource('user', UserController::class );
     Route::get('user/datatable/ssd', [UserController::class, 'ssd']);
+
+    Route::get('wallet', [WalletController::class, 'index'])->name('wallet.index');
+    Route::get('wallet/datatable/ssd', [WalletController::class, 'ssd']);
+
+
 });
 

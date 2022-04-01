@@ -53,6 +53,13 @@
                         Users  
                    </a>
                </li>
+               <li>
+                <!-- for active  class="mm-active" =>  class="@yield('user-active')"  -->
+               <a href="{{route('admin.wallet.index')}}"  class="@yield('wallet-active')">
+                   <i class="metismenu-icon pe-7s-wallet"></i>
+                    Wallets  
+               </a>
+           </li>
             
             </ul>
         </div>
