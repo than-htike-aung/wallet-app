@@ -15,7 +15,7 @@
                 <h5>{{$authUser->wallet ? $authUser->wallet->account_number : '-'}}</h5>
                 </div>
             <div>
-                <p>Than Htike</p>
+                <p>{{$authUser->name}}</p>
                 
             </div>
            </div>

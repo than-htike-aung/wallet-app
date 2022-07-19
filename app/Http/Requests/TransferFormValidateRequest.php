@@ -25,7 +25,8 @@ class TransferFormValidateRequest extends FormRequest
     {
         return [
             'to_phone' => 'required',
-            'amount' => 'required|integer'
+            'amount' => 'required|integer',
+            'hash_value' => 'required'
         ];
     }
 
@@ -33,6 +34,7 @@ class TransferFormValidateRequest extends FormRequest
         return[
             'to_phone.required' => 'pls fill the to account information',
             'amount.required' => 'Pls fill the amount',
+            'hash_value.required' => 'The given data is invalid.'
         ];
     }
 }

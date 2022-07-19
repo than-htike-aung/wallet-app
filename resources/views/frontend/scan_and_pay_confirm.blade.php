@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@section('title', 'Transfer Confirm')
+@section('title', 'Scan & Pay Confirm')
 
 @section('content')
     <!-- Sweet alert 2 -->
@@ -8,7 +8,7 @@
     
        <div class="card">
            <div class="card-body">
-               <form action="{{url('transfer/complete')}}" id="form" method="POST">
+               <form action="{{url('scan-and-pay/complete')}}" id="form" method="POST">
                    @csrf
                     <input type="hidden" name="hash_value" value="{{$hash_value}}">
                    <input type="hidden" name="to_phone" value="{{$to_account->phone}}">

@@ -13,6 +13,8 @@
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    {{--Date Range picker --}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     {{--google fonts - opens san --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,8 +49,9 @@
                             
                         </div>
                         <div class="col-2 text-center">
-                           <a href="">
+                           <a href="{{url('notification')}}">
                                 <i class="fas fa-bell"></i>
+                                <span class=" badge rounded-pill bg-danger unread_noti_count">{{$unread_noti_count}}</span>
                            </a>
                         </div>
                     </div>
@@ -65,7 +68,7 @@
         </div>
 
         <div class="bottom-menu">
-            <a href="" class="scan-tab">
+            <a href="{{url('scan-and-pay')}}" class="scan-tab">
                 <div class="inside">
                     <i class="fas fa-qrcode"></i>
                 </div>
@@ -109,6 +112,12 @@
    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+{{--Date Range Picker --}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> --}}
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
 
     <!-- Infinite scrool for pagination - jScrool -->
     <script src="{{asset('frontend/js/jScrool.min.js')}}"></script>

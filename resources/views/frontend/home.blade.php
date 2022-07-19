@@ -14,20 +14,24 @@
                 </div>
             </div>
             <div class="col-6">
-                <div class="card shortcut-box mb-3">
-                    <div class="card-body p-3">
-                        <img class="mr-2" src="{{asset('frontend/img/code-scanning.png')}}" alt="no-img">
-                        <span>Scan & Pay</span>
+                <a href="{{url('scan-and-pay')}}">
+                    <div class="card shortcut-box mb-3">
+                        <div class="card-body p-3">
+                            <img class="mr-2" src="{{asset('frontend/img/code-scanning.png')}}" alt="no-img">
+                            <span>Scan & Pay</span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-6">
-                <div class="card shortcut-box mb-3">
-                    <div class="card-body p-3">
-                        <img class="mr-2" src="{{asset('frontend/img/qr-code.png')}}" alt="no-img">
-                        <span>Receive QR</span>
+                <a href="{{url('receive-qr')}}">
+                    <div class="card shortcut-box mb-3">
+                        <div class="card-body p-3">
+                            <img class="mr-2" src="{{asset('frontend/img/qr-code.png')}}" alt="no-img">
+                            <span>Receive QR</span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-12">
                 <div class="card mb-3 function-box">
@@ -39,7 +43,7 @@
                             </a>
                         
                         <hr>
-                        <a href="#" class="d-flex justify-content-between logout">
+                        <a href="{{route('wallet')}}" class="d-flex justify-content-between logout">
                             <span><img src="{{asset('frontend/img/wallet.png')}}" alt="">Wallet</span>
                             <span class="me-3"><i class="fas fa-angle-right"></i></span>
                         </a>                        

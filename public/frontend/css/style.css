@@ -293,3 +293,10 @@ a:hover {
 .transaction-detail img {
     width: 80px;
 }
+
+.unread_noti_count {
+    position: relative;
+    top: -8px;
+    right: 10px;
+    padding: 3px;
+}

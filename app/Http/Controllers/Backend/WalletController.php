@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Wallet;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Carbon\Carbon;
+use GuzzleHttp\Psr7\Request;
 use Yajra\Datatables\Datatables;
 
 
@@ -42,4 +44,29 @@ class WalletController extends Controller
             ->rawColumns(['account_person'])
             ->make(true);
     }
+
+    public function addAmount(){
+        $users = User::orderBy("name")->get();
+        return view('backend.wallet.add_amount', compact('users'));
+    }
+
+    public function addAmountStore(Request $request){
+       $request->validate(
+           [
+            'user_id' => 'required',
+            'amount' => 'required|integer',
+           ],
+           [
+                'user_id.required' => 'The user field is required.',
+           ]
+           );
+           if($request->amount < 1000) {
+               return back()->withErrors(['amount' => 'The amount must be at least 1000 MMK.'])->withInput();
+           }
+
+           $to_account = User::with('wallet')->where('id', $request->user_id)->firstOrFail();
+           $to_account_wallet->increment('amount', $amount);
+           $to_account_wallet->update();
+    }
+
 }

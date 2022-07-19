@@ -3,6 +3,7 @@
 
 @section('content')
 <div class="transaction-detail">
+    
     <div class="card">
         <div class="card-body">
             @if(session('transfer-success'))

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,4 +57,13 @@ Route::middleware('auth')->group(function(){
     Route::get('/transaction', [HomeController::class, 'transaction']);
     Route::get('/transaction/{trs_id}', [HomeController::class, 'transactionDetail']);
     
+    Route::get('/transfer-hash', [HomeController::class, 'transferHash']);
+    Route::get('/receive-qr', [HomeController::class, 'receiveQR']);
+    Route::get('/scan-and-pay', [HomeController::class, 'scanAndPay']);
+    Route::get('/scan-and-pay-form', [HomeController::class, 'scanAndPayForm']);
+    Route::get('/scan-and-pay/confirm', [HomeController::class, 'scanAndPayConfirm']);
+    Route::post('/scan-and-pay/complete', [HomeController::class, 'scanAndPayComplete']);
+
+    Route::get('/notification', [NotificationController::class, 'index']);
+    Route::get('/notification/{id}', [NotificationController::class, 'show']);
 });

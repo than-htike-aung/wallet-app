@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@section('title', 'Transfer')
+@section('title', 'Scan & Pay form')
 
 @section('content')
 <div class="transfer">
@@ -7,24 +7,18 @@
        <div class="card">
            <div class="card-body">
                @include('frontend.layouts.flash_msg')
-               <form action="{{url('transfer/confirm')}}" method="GET" id="transfer-form">
+               <form action="{{url('scan-and-pay/confirm')}}" method="GET" id="transfer-form">
                     <input type="hidden" name="hash_value" class="hash_value" value="">
+                    <input type="hidden" name="to_phone" class="to_phone" value="{{$to_account->phone}}">
                <div class="form-group">
                     <label for="">From</label>
-                    <p class="mb-1 text-muted">{{$authUser->name}}</p>
-                    <p class="mb-1 text-muted">{{$authUser->phone}}</p>
+                    <p class="mb-1 text-muted">{{$from_account->name}}</p>
+                    <p class="mb-1 text-muted">{{$from_account->phone}}</p>
                </div>
-               <div class="form-group mb-3">
-                   <label for="">To <span class="to_account_info text-success"></span></label>
-                <div class="input-group">
-                    <input type="text" class="form-control to_phone  @error('to_phone') is-invalid @enderror" id="to_phone" id="to_phone" name="to_phone" value="{{old('to_phone')}}"  aria-describedby="basic-addon2">
-                    <span class="input-group-text btn btn-secondary verify-btn " id="basic-addon2"><i class="fas fa-circle-check"></i></span>
-                    @error('to_phone')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                        @enderror 
-                </div>
+               <div class="form-group">
+                   <label for="">To </label>
+                   <p class="mb-1 text-muted">{{$to_account->name}}</p>
+                   <p class="mb-1 text-muted">{{$to_account->phone}}</p>
                    
                 </div>
 
@@ -55,26 +49,7 @@
 @section('scripts')
     <script>
         $(document).ready(function(){
-            
-            $('.verify-btn').on('click', function(){
-               
-                var phone = $('.to_phone').val();
-               //console.log(phone);
-                $.ajax({
-                    url:'/to-account-verify?phone=' + phone,
-                    type: 'GET',
-                  
-                    success: function(res){
-                        //console.log(res);
-                        if(res.status == 'success'){
-                             $('.to_account_info').text('('+res.data['name']+')');
-                        }else{
-                        $('.to_account_info').text('('+res.message+')');
-                    }
-                    },
-                   
-                });
-            });
+         
 
             $('.submit-btn').on('click', function(e){
                 e.preventDefault();
